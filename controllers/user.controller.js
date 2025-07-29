@@ -1,5 +1,5 @@
 const fetchData = (req, res) => {
-    res.render('signup')
+    res.render('signup');
 }
 
 const loginPage = (req, res) => {
