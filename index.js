@@ -7,10 +7,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const ejs = require("ejs");
 const userRoute = require("./routes/user.route");
-const userModel = require("./models/user.model"); // ✅ Ensure this file exists and exports userModel
-const userSchema = require("./models/user.model").userSchema; // ✅ If you exported schema separately
-const path = require('path'); // ✅ Import path for serving static files
-const router = express.Router();
+const path = require('path');
 
 // Constants
 const PORT = process.env.PORT || 5000;
@@ -27,8 +24,6 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use("/user", userRoute);
-router.get('/signup', userController.fetchData);
-router.get('/login', userController.loginPage);
 
 // Fetch data for EJS view (async load at startup)
 fetch('https://students-api-woad.vercel.app/api')
@@ -54,9 +49,7 @@ app.get("/ejs", (req, res) => {
     res.render("index", {
         date: new Date().toLocaleString(),
         info,
-        score,
-        userModel,
-        userSchema
+        score
     });
 });
 
