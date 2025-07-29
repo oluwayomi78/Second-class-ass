@@ -3,10 +3,10 @@ const fetchData = (req, res) => {
 }
 
 const loginPage = (req, res) => {
-    res.render('login')
+    res.render('login');
 }
 
 module.exports = {
     fetchData,
     loginPage
-}
+};

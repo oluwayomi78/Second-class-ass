@@ -91,7 +91,7 @@ app.post('/send-mail', async (req, res) => {
         to,
         subject: '🛍️ Weekend Super Sale at City Mall!',
         text: 'Don’t miss out on amazing deals at City Mall this weekend!',
-        html: `...` // Keep your HTML content here (already looks fine)
+        html: `<p>🛍️ Weekend Super Sale at City Mall! Don't miss out!</p>` // Keep your HTML content here (already looks fine)
     };
 
     try {
@@ -108,6 +108,14 @@ app.post('/send-mail', async (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 });
+
+app.get('/signup', (req, res) => {
+    res.redirect('/user/signup');
+});
+
+app.get('/user/login', (req, res) => {
+    res.redirect('/user/login');
+})
 
 // Start server
 app.listen(PORT, () => {
