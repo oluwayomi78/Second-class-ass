@@ -10,6 +10,7 @@ const userRoute = require("./routes/user.route");
 const userModel = require("./models/user.model"); // ✅ Ensure this file exists and exports userModel
 const userSchema = require("./models/user.model").userSchema; // ✅ If you exported schema separately
 const path = require('path'); // ✅ Import path for serving static files
+const router = express.Router();
 
 // Constants
 const PORT = process.env.PORT || 5000;
@@ -26,6 +27,8 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use("/user", userRoute);
+router.get('/signup', userController.fetchData);
+router.get('/login', userController.loginPage);
 
 // Fetch data for EJS view (async load at startup)
 fetch('https://students-api-woad.vercel.app/api')
@@ -36,7 +39,6 @@ fetch('https://students-api-woad.vercel.app/api')
     .catch(error => {
         console.log('Error fetching data:', error.message);
     });
-
 
 const connection = mongoose.connect(MONGO_URI)
 connection.then(() => {
@@ -108,14 +110,6 @@ app.post('/send-mail', async (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 });
-
-app.get('/signup', (req, res) => {
-    res.redirect('/user/signup');
-});
-
-app.get('/user/login', (req, res) => {
-    res.redirect('/user/login');
-})
 
 // Start server
 app.listen(PORT, () => {
