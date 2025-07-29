@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/5a5c9880598331.5ce5aac2352ea.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            min-height: 600px;
+            background-color: #282c2f;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            padding: 40px;
+        }
+
+        form h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        form label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        form input {
+            width: 100%;
+            height: 45px;
+            padding: 0 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            height: 50px;
+            margin-top: 20px;
+            background-color: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #00b894;
+        }
+
+        .im {
+            width: 50%;
+        }
+
+        .im img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .p {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .p a {
+            color: #0984e3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 992px) {
+            .flex {
+                flex-direction: column;
+                max-width: 600px;
+            }
+
+            form, .im {
+                width: 100%;
+            }
+
+            .im {
+                height: 300px;
+                order: -1;
+            }
+
+            form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 10px;
+            }
+
+            form {
+                padding: 25px 20px;
+            }
+
+            form h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            form input {
+                height: 40px;
+                font-size: 14px;
+            }
+
+            form button {
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .im {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            form {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="flex">
+            <form action="/user/signup" method="post">
+                <h2>Sign Up</h2>
+                <div class="form-group">
+                    <label for="firstName">Firstname</label>
+                    <input type="text" name="firstName" placeholder="First name" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Lastname</label>
+                    <input type="text" name="lastName" placeholder="Last name" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Enter email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter password" id="password" required>
+                </div>
+                <button type="submit">Sign up</button>
+                <p class="p">Already have an account? <a href="/login">Login</a></p>
+            </form>
+            <div class="im">
+                <img src="https://img.freepik.com/free-photo/skull-with-many-different-parts-it_698780-1005.jpg" alt="Decorative skull image">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

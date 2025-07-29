@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: #f5f6fa; font-family: Arial, sans-serif;">
+    <h1 style="text-align:center; color:#2d3436; margin-top:30px;">Song List</h1>
+    <marquee behavior="" direction=""><h1><%= date %></h1></marquee>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin: 30px auto; max-width: 1200px;">
+        <% for(let i = 0; i < info.length; i++) { %>
+            <div style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px; width: 320px; text-align: center;">
+                <img src="<%= info[i].songImg %>" alt="Song Image" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;">
+                <h2 style="color: #0984e3; margin: 8px 0 4px 0; font-size: 1.3em;"> <%= info[i].songTitle %> </h2>
+                <h3 style="color: #636e72; margin: 0 0 8px 0; font-size: 1.1em;"> <%= info[i].artistName %> </h3>
+                <p style="color: #636e72; margin: 0 0 8px 0;">Release Date: <%= info[i].ReleaseDate %></p>
+                
+                <a href="<%= info[i].songUrl %>" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background:#00b894; color:#fff; border-radius:5px; text-decoration:none;">Listen</a>
+            </div>
+        <% } %>
+    </div>
+    <% if (2+2 === 4) { %>
+        <h1 style="text-align:center; color:#00b894;transform: rotate(3deg)">2+2 = 4</h1>
+    <% } %>
+    <div>
+        <h1 style="text-align:center; color:#00b894;transform: rotate(3deg)">Your score is <%= score %></h1>
+    </div>
+    <% if (score>=0 && score <40) { %>
+        <h1 style="text-align:center; color:#00b894;">You are a beginner</h1>
+    <% } else if (score>= 40 && score <45) { %>
+        <h1 style="text-align:center; color:#00b894;transform: rotate(3deg)">You are still trying in life</h1>
+    <% } else if (score >= 70) { %>
+        <h1 style="text-align:center; color:#00b894;transform: rotate(3deg)">Keep it up</h1>
+        <% } else if (score >=70 && score < 85) { %>
+            <h1 style="text-align:center; color:#00b894;">weldone</h1>
+            <% } else if (score >= 85) { %>
+                <h1 style="text-align:center; color:#00b894;transform: rotate(3deg)">You are a genius</h1>
+                <% } %>
+                    <div style="text-align:center; margin-top:50px;">
+                        <a href="/play" style="display:inline-block; margin-top:10px; padding:8px 16px; background:#00b894; color:#fff; border-radius:5px; text-decoration:none;">Play Again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+</body>
+</html>
