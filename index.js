@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const ejs = require("ejs");
-// const fetch = require('node-fetch'); // Required for fetch on Node.js
 const userRoute = require("./routes/user.route");
 const userModel = require("./models/user.model"); // ✅ Ensure this file exists and exports userModel
 const userSchema = require("./models/user.model").userSchema; // ✅ If you exported schema separately
@@ -112,7 +111,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
-
-
-// })
