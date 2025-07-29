@@ -3,9 +3,9 @@ const ejs = require("ejs");
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const PORT = 5059;
+const PORT = process.env.port || 5000;
 const HtmlPage = '/'
-const uri = "mongodb+srv://preciousenoch459:OkWZLsDXK3x1ILLG@cluster0.rrmgi3x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // database name is bcrypt
+const uri = process.env.mongodb_uri; // database name is bcrypt
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
