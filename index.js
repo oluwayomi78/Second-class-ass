@@ -21,8 +21,8 @@ let info = ""; // placeholder to avoid undefined error in EJS
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Routes
 app.use("/user", userRoute);
