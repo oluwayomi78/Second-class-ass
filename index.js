@@ -9,6 +9,7 @@ const ejs = require("ejs");
 const userRoute = require("./routes/user.route");
 const userModel = require("./models/user.model"); // ✅ Ensure this file exists and exports userModel
 const userSchema = require("./models/user.model").userSchema; // ✅ If you exported schema separately
+const path = require('path'); // ✅ Import path for serving static files
 
 // Constants
 const PORT = process.env.PORT || 5000;
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Routes
 app.use("/user", userRoute);
